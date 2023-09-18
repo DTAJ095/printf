@@ -7,10 +7,11 @@
  */
 int print_char(va_list list)
 {
+	int count;
 	char chr = va_arg(list, int);
 
-	_putchar(chr);
-	return (-1);
+	count = _putchar(chr);
+	return (count);
 }
 
 /**
@@ -20,15 +21,18 @@ int print_char(va_list list)
  */
 int print_str(va_list list)
 {
-	int i = 0;
+	int count = 0;
 	char *str;
 
 	str = va_arg(list, char *);
 	if (str == NULL)
 		str = "(null)";
-	for (; str[i] != '\0'; i++)
-		_putchar(str[i]);
-	return (i);
+	while (*str)
+	{
+		count += _putchar(*str);
+		str++;
+	}
+	return (count);
 }
 
 /**
