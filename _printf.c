@@ -1,39 +1,29 @@
 #include "main.h"
 
 /**
-*_printf -  inbuilt printf
-*@format: format specifier
-*Return:  formated string
-*/
+ * _printf - produces output according to a format
+ * @format: the format
+ *
+ * Return: the total count of the printed characters
+ */
+
 int _printf(const char *format, ...)
 {
-int i, work;
-int (*f)(va_list);
-va_list list;
-if (format == NULL)
-return (-1);
-va_start(list, format);
-i = work = 0;
-while (format[i] != '\0')
-{
-if (format[i] == '%')
-{
-if (format[i + 1] == '\0')
-return (-1);
-f = get_func(format[i + 1]);
-if (f == NULL)
-work += print_nan(format[i], format[i + 1]);
-else
-work += f(list);
-i++;
-}
-else
-{
-_putchar(format[i]);
-work++;
-}
-i++;
-}
-va_end(list);
-return (work);
+	int printed_char;
+	conver_t func_list[] = {
+		{"c", print_char},
+		{"s", print_str},
+		{"%", print_percent}
+	};
+	va_list arg_list;
+
+	if (format == NULL)
+		return (-1);
+	va_start(arg_list, format);
+
+	printed_char = parser(format, func_list, arg_list);
+
+	va_end(arg_list);
+
+	return (printed_char);
 }
