@@ -27,4 +27,7 @@ int print_percent(va_list);
 int parser(const char *format, conver_t func_list[], va_list arg_list);
 int print_int(va_list list);
 int print_num(va_list arg_list);
+
+int custom_selector(const char *format, va_list args, int count);
+int custom_puts(char *str);
 #endif
