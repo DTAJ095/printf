@@ -18,9 +18,9 @@ int parser(const char *format, conver_t func_list[], va_list arg_list)
 	{
 		if (format[i] == '%')
 		{
-			for (; func_list[j].opt != NULL; j++)
+			for (; func_list[j].sym != NULL; j++)
 			{
-				if (format[i + 1] == func_list[j].opt[0])
+				if (format[i + 1] == func_list[j].sym[0])
 				{
 					val = func_list[j].func(arg_list);
 					if (val == -1)
@@ -29,12 +29,12 @@ int parser(const char *format, conver_t func_list[], va_list arg_list)
 					break;
 				}
 			}
-			if (func_list[j].opt == NULL && format[i + 1] != ' ')
+			if (func_list[j].sym == NULL && format[i + 1] != ' ')
 			{
 				if (format[i + 1] != '\0')
 				{
 					_putchar(format[i]);
-					/*_putchar(format[i + 1]);*/
+					_putchar(format[i + 1]);
 					printed_char = printed_char + 2;
 				}
 				else
