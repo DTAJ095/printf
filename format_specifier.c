@@ -76,3 +76,38 @@ int unsigned_int(va_list list)
 		return (-1);
 	return (print_unsigned_num(num));
 }
+
+/**
+ * print_String - Prints a string with non-printable char
+ * @list : the list of arguments
+ * Return: The number of characters printed
+ */
+int print_String(va_list list)
+{
+	int count = 0;
+	int i = 0;
+	char *str = va_arg(list, char *);
+
+	if (str == NULL)
+	{
+		str = "(null)";
+	}
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (str[i] < 32 || str[i] >= 127)
+		{
+			_putchar('\\');
+			_putchar('x');
+			count += 2;
+			count += print_hexa_char(str[i]);
+		}
+		else
+		{
+			_putchar(str[i]);
+			count++;
+		}
+	}
+
+	return (count);
+}

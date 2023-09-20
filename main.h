@@ -25,6 +25,8 @@ int print_char(va_list);
 int print_str(va_list);
 int print_percent(va_list);
 int parser(const char *format, conver_t func_list[], va_list arg_list);
+int print_String(va_list list);
+int print_hexa_char(char c);
 int print_int(va_list list);
 int print_num(va_list arg_list);
 int unsigned_int(va_list list);

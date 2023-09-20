@@ -90,3 +90,20 @@ void print_buffer(char buffer[], int *buff_ind)
 
 	*buff_ind = 0;
 }
+
+/**
+ * print_hexa_char - Prints a character in hexadecimal format
+ * @c: The character to be printed
+ * Return: The number of characters printed
+ */
+int print_hexa_char(char c)
+{
+	char hex_digits[] = "0123456789ABCDEF";
+	int count = 0;
+
+	_putchar(hex_digits[(c >> 4) & 0xF]);
+	_putchar(hex_digits[c & 0xF]);
+	count += 2;
+
+	return (count);
+}
