@@ -6,13 +6,15 @@
  * @format: the format
  * @func_list: the list of all possible functions
  * @arg_list: the list of all arguments passed to the program
+ * @buffer: array of characters
  *
  * Return: the total count printed characters
  */
 
-int parser(const char *format, conver_t func_list[], va_list arg_list)
+int parser(const char *format, conver_t func_list[], va_list arg_list, char buffer[])
 {
-	int i = 0, j = 0, val, printed_char = 0;
+	int i = 0, j = 0, val, printed_char = 0, printed = 0;
+	int buff_ind = 0;
 
 	for (; format[i] != '\0'; i++)
 	{
@@ -33,9 +35,11 @@ int parser(const char *format, conver_t func_list[], va_list arg_list)
 			{
 				if (format[i + 1] != '\0')
 				{
-					_putchar(format[i]);
-					_putchar(format[i + 1]);
-					printed_char = printed_char + 2;
+					/*_putchar(format[i]);
+					_putchar(format[i + 1]);*/
+					print_buffer(buffer, &buff_ind);
+					printed = parser(format, func_list, arg_list, buffer);
+					printed_char += printed;
 				}
 				else
 					return (-1);
@@ -44,7 +48,10 @@ int parser(const char *format, conver_t func_list[], va_list arg_list)
 		}
 		else
 		{
-			_putchar(format[i]);
+			/*_putchar(format[i]);*/
+			buffer[buff_ind++] = format[i];
+			if (buff_ind == BUFF_SIZE)
+				print_buffer(buffer, &buff_ind);
 			printed_char++;
 		}
 	}
