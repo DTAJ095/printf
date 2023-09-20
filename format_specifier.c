@@ -111,3 +111,37 @@ int print_String(va_list list)
 
 	return (count);
 }
+
+/**
+ * print_pointer - Prints a memory address in hexadecimal format with "0x" prefix
+ * @list: The list of arguments
+ * Return: The number of characters printed
+ */
+
+int print_pointer(va_list list)
+{
+	unsigned long int ptr = va_arg(list, unsigned long int);
+	char *hexa;
+	int count = 0;
+
+	if (ptr == 0)
+	{
+		count += _puts("(nil)");
+	}
+	else
+	{
+		count += _puts("0x");
+		hexa = convert(ptr, 16, 1);
+		if (hexa != NULL)
+		{
+			count += _puts(hexa);
+			free(hexa);
+		}
+		else
+		{
+			return (-1);
+		}
+	}
+
+	return (count);
+}

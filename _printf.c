@@ -22,7 +22,8 @@ int _printf(const char *format, ...)
 		{"o", octal},
 		{"x", hexa},
 		{"X", HEXA},
-		{"S", print_String}
+		{"S", print_String},
+		{"p", print_pointer},
 	};
 	va_list arg_list;
 

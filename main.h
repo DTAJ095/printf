@@ -27,6 +27,8 @@ int print_percent(va_list);
 int parser(const char *format, conver_t func_list[], va_list arg_list);
 int print_String(va_list list);
 int print_hexa_char(char c);
+char *convert(unsigned long int num, int base, int uppercase);
+int print_pointer(va_list list);
 int print_int(va_list list);
 int print_num(va_list arg_list);
 int unsigned_int(va_list list);
@@ -41,5 +43,6 @@ int HEXA(va_list list);
 int hexa(va_list list);
 int octal(va_list list);
 void print_buffer(char buffer[], int *buff_ind);
+int _puts(char *str);
 
 #endif

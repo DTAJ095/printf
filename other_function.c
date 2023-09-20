@@ -107,3 +107,71 @@ int print_hexa_char(char c)
 
 	return (count);
 }
+
+
+/**
+ * _puts - function that print a string
+ *
+ * @str: string to be printed
+ * Return: length.
+ */
+
+int _puts(char *str)
+{
+	int i;
+
+	for (i = 0; str[i] != '\0'; i++)
+		_putchar(str[i]);
+	return (i);
+}
+
+/**
+ * convert - Convert an unsigned long integer to a specified base as a string.
+ * @num: The number to convert.
+ * @base: The base for conversion (e.g., 16 for hexadecimal).
+ * @uppercase: Whether to use uppercase letters for hexadecimal
+ *
+ * Return: A dynamically allocated string containing the converted number.
+ */
+char *convert(unsigned long int num, int base, int uppercase)
+{
+	char buffer[64];
+	char *result;
+	int i = 0;
+	int j = 0;
+	char *hex_chars;
+
+	if (uppercase)
+		hex_chars = "0123456789ABCDEF";
+	else
+		hex_chars = "0123456789abcdef";
+
+
+	if (num == 0)
+	{
+		result = malloc(2);
+		if (!result)
+			return (NULL);
+		result[0] = '0';
+		result[1] = '\0';
+		return (result);
+	}
+
+	while (num > 0)
+	{
+		buffer[i++] = hex_chars[num % base];
+		num /= base;
+	}
+
+	result = malloc(i + 1);
+	if (!result)
+		return (NULL);
+
+
+	for (j = 0; i > 0; j++, i--)
+
+		result[j] = buffer[i - 1];
+	result[j] = '\0';
+
+	return (result);
+}
