@@ -124,7 +124,7 @@ int print_pointer(va_list list)
 	char *hexa;
 	int count = 0;
 
-	if (ptr == 0)
+	if (ptr == NULL)
 	{
 		count += _puts("(nil)");
 	}
