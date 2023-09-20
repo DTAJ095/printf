@@ -44,5 +44,7 @@ int hexa(va_list list);
 int octal(va_list list);
 void print_buffer(char buffer[], int *buff_ind);
 int _puts(char *str);
+int print_reverse(va_list list);
+int print_rot13(va_list list);
 
 #endif

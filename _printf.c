@@ -24,6 +24,8 @@ int _printf(const char *format, ...)
 		{"X", HEXA},
 		{"S", print_String},
 		{"p", print_pointer},
+		{"r", print_reverse},
+		{"R", print_rot13}
 	};
 	va_list arg_list;
 
