@@ -184,8 +184,6 @@ char *convert(unsigned long int num, int base, int uppercase)
  */
 int get_flags(const char *format, int *i)
 {
-	/* - + 0 # ' ' */
-	/* 1 2 4 8  16 */
 	int j, curr_i;
 	int flags = 0;
 	const char FLAGS_CHR[] = {'-', '+', '0', '#', ' ', '\0'};
