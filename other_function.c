@@ -76,3 +76,17 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 	dest[i] = '\0';
 	return (dest);
 }
+
+/**
+ * print_buffer - print a buffer's content if it exist
+ * @buffer: arrays of characters
+ * @buff_ind: the buffer index
+ */
+
+void print_buffer(char buffer[], int *buff_ind)
+{
+	if (*buff_ind > 0)
+		write(1, &buffer[0], *buff_ind);
+
+	*buff_ind = 0;
+}

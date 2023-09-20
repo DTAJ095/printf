@@ -1,6 +1,6 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
-
+#define _BUFF_SIZE 1024
 #include<stdarg.h>
 #include<stdlib.h>
 #include<unistd.h>
@@ -38,5 +38,6 @@ int check_hex(int num, char x);
 int HEXA(va_list list);
 int hexa(va_list list);
 int octal(va_list list);
+void print_buffer(char buffer[], int *buff_ind);
 
 #endif
