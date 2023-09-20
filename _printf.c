@@ -10,7 +10,7 @@
 int _printf(const char *format, ...)
 {
 	int printed_char;
-	char buffer[BUFF_SIZE];
+	/*char buffer[BUFF_SIZE];*/
 	conver_t func_list[] = {
 		{"c", print_char},
 		{"s", print_str},
@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 		return (-1);
 	va_start(arg_list, format);
 
-	printed_char = parser(format, func_list, arg_list, buffer);
+	printed_char = parser(format, func_list, arg_list);
 
 	va_end(arg_list);
 
