@@ -1,6 +1,18 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 #define BUFF_SIZE 1024
+
+/* FLAGS */
+#define F_MINUS 1
+#define F_PLUS 2
+#define F_ZERO 4
+#define F_HASH 8
+#define F_SPACE 16
+
+/* SIZES */
+#define S_LONG 2
+#define S_SHORT 1
+
 #include<stdarg.h>
 #include<stdlib.h>
 #include<unistd.h>
@@ -24,7 +36,7 @@ int _putchar(char);
 int print_char(va_list);
 int print_str(va_list);
 int print_percent(va_list);
-int parser(const char *format, conver_t func_list[], va_list arg_list);
+int parser(const char *format, conver_t func_list[], va_list arg_list, int flags);
 int print_String(va_list list);
 int print_hexa_char(char c);
 char *convert(unsigned long int num, int base, int uppercase);
@@ -46,5 +58,7 @@ void print_buffer(char buffer[], int *buff_ind);
 int _puts(char *str);
 int print_reverse(va_list list);
 int print_rot13(va_list list);
+int get_flags(const char *format, int *i);
+
 
 #endif
