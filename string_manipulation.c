@@ -24,7 +24,7 @@ int print_reverse(va_list list)
 }
 
 /**
- * rot13 - Converts string to rot13
+ * print_rot13 - Converts string to rot13
  * @list: the list of arguments
  * Return: converted string
  */

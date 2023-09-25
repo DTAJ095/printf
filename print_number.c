@@ -51,7 +51,7 @@ int print_unsigned_num(unsigned int n)
 
 	for (; num / div > 9; )
 		div *= 10;
-	
+
 	for (; div != 0; )
 	{
 		len += _putchar('0' + num / div);
